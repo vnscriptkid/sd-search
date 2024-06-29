@@ -1,0 +1,23 @@
+{
+  "name": "postgres_connector",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "tasks.max": "1",
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "postgres",
+    "database.password": "postgres",
+    "database.dbname": "debezium",
+    "database.server.name": "dbserver1",
+    "schema.whitelist": "public",
+    "table.whitelist": "products",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": "false",
+    "value.converter.schemas.enable": "false",
+    "plugin.name": "pgoutput",
+    "snapshot.mode": "initial",
+    "heartbeat.interval.ms": "5000",
+    "topic.prefix": "cdc_"
+  }
+}
